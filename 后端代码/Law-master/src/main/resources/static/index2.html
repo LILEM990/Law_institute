@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户1</title>
+</head>
+<style>
+    #message {
+        width: 50%;
+        height: 300px;
+        border: 1px solid black;
+    }
+
+    #inputVal {
+        width: 50%;
+    }
+
+    input {
+        width: 92%;
+    }
+</style>
+<body>
+<h1>user_two</h1>
+<div id="message">
+
+</div>
+<div id="inputVal">
+    <input type="text" name="text">
+    <button onclick="send()">发送</button>
+</div>
+
+<script>
+    var messageEl = document.getElementById("message");
+    var inputEl = document.getElementsByTagName("input")[0];
+    var websocket = null;
+    if ('WebSocket' in window) {
+        websocket = new WebSocket("ws://localhost:8888/websocket/user_two");
+    } else {
+        alert("浏览器不支持");
+
+    }
+    websocket.onopen = function () {
+        console.log("连接成功");
+        addMessage("连接成功");
+
+    };
+    websocket.onclose = function () {
+        console.log("连接失败");
+        addMessage("连接失败");
+    };
+    websocket.onmessage = function (event) {
+        addMessage(event.data);
+    };
+    websocket.onerror = function () {
+        console.log("连接失败");
+        addMessage("连接失败");
+    };
+
+    function addMessage(message) {
+        messageEl.innerHTML += message + "</br>";
+    }
+
+    function send() {
+        websocket.send("user_two:" + inputEl.value);
+        messageEl.innerHTML += "我:" + inputEl.value + "</br>";
+    }
+
+
+</script>
+
+</body>
+</html>

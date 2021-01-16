@@ -1,0 +1,115 @@
+###
+GET http://localhost:8888/user/findAllUser
+###
+POST http://localhost:8888/user/addUser
+Content-Type: application/json
+
+{
+  "username": "51",
+  "password": "123456",
+  "nickname": "11",
+  "type": "11",
+  "pic": ""
+}
+
+###
+PUT http://localhost:8888/user/updateUser
+Content-Type: application/json
+
+{
+  "id": "11",
+  "username": "55",
+  "password": "00",
+  "nickname": "00",
+  "type": "00"
+}
+###
+GET http://localhost:8888/user/login?username=11&password=111
+
+###
+DELETE http://localhost:8888/user/deleteUserById?id=11
+
+###
+POST http://localhost:8888/lawyer/addLawyer
+Content-Type: application/json
+
+{
+  "lawyer_username": "11111",
+  "lawyer_password": "161",
+  "name": "1",
+  "age": "10",
+  "gender": "male",
+  "worktime": "15",
+  "cases": "10",
+  "descrip": "111",
+  "free": "true",
+  "casetype": "151",
+  "pic": "",
+  "company": ""
+}
+
+###
+GET http://localhost:8888/lawyer/findAllLawyer
+Content-Type: application/json
+
+###
+PUT http://localhost:8888/lawyer/updateLawyer
+Content-Type: application/json
+
+{
+  "id": "1bc23394-dc82-4b6f-b865-b6e69fa2010a",
+  "lawyer_username": "51111",
+  "lawyer_password": "161",
+  "name": "11111",
+  "age": "10",
+  "gender": "male",
+  "worktime": "15",
+  "cases": "10",
+  "descrip": "111",
+  "free": "true",
+  "casetype": "151",
+  "company": "111"
+}
+
+###
+DELETE http://localhost:8888/lawyer/deleteLawyerById?id=1bc23394-dc82-4b6f-b865-b6e69fa2010a
+
+###
+PUT http://localhost:8888/order/addOrder
+Content-Type: application/json
+
+{
+  "user_id": "15",
+  "user_name": "15",
+  "lawyer_id": "15",
+  "lawyer_name": "15",
+  "order_descrip": "15",
+  "order_type": "15",
+  "done": "true",
+  "start": "2020154",
+  "end": "2020-12-16"
+}
+###
+PUT http://localhost:8888/order/findAllOrder
+Content-Type: application/json
+###
+DELETE http://localhost:8888/order/deleteOrderById?order_id=1
+###
+PUT http://localhost:8888/order/updateOrder
+Content-Type: application/json
+
+{
+  "order_id": "9395a5d3-c791-41fa-a736-4d7e4402876c",
+  "user_id": "55",
+  "user_name": "15",
+  "lawyer_id": "15",
+  "lawyer_name": "15",
+  "order_descrip": "15",
+  "order_type": "15",
+  "done": "true",
+  "start": "2020-12-15",
+  "end": "2020-12-16"
+}
+
+
+
